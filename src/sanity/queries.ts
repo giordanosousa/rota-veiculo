@@ -28,5 +28,5 @@ export async function getAvailableVehicles(): Promise<Vehicle[]> {
     acceptsTrade
   }`
 
-  return client.fetch(query, {}, { cache: 'no-store' })
+  return client.fetch(query, {}, { next: { revalidate: 30 }})
 }
